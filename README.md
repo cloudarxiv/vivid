@@ -1,8 +1,6 @@
 
 # Performance characterization of GPU-based VDI and virtualized graphics acceleration
 
-This repository contains the RnD-I work on the topic: "Performance characterization of GPU-based VDI and virtualized graphics acceleration". The work is done as part of the course "RnD-I" at IIT Bombay by Anshika Raman (210050014) under the guidance of Prof. Purushottam Kulkarni and Prof. Parag Chaudhuri.
-
 ## Abstract
 
 Virtual Desktop Infrastructure (VDI) is a technology that allows users to access their desktops remotely. It is widely used in organizations to provide a secure and efficient way to access desktops. Multiple users connect to the same VDI server and share the resources. The performance of VDI is crucial for the user experience. Graphics acceleration is a technique that improves the performance of VDI by offloading the graphics processing or desktop rendering task to the dedicated GPU(s) instead of the CPU. GPUs are multiplexed and virtualized to support parallelism in desktop rendering. GPUs can be virtualized using different techniques like hardware-assisted virtualization, pass-through and paravitualization. The performance of VDI depends on the virtualization technique used for GPU virtualization. We particularly look into the paravirtualization-based GPU acceleration and VDI and study the performance of VDI. We also evaluate the performance of hardware-accelerated VMs and study the effect of different parameters like the number of users and the support for hardware acceleration.
