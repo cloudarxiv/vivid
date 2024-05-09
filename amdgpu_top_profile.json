@@ -1,0 +1,600 @@
+{
+    "amdgpu_top_version": {
+        "major": 0,
+        "minor": 8,
+        "patch": 2
+    },
+    "devices": [
+        {
+            "GRBM": {
+                "Color Block": {
+                    "unit": "%",
+                    "value": 0
+                },
+                "Depth Block": {
+                    "unit": "%",
+                    "value": 0
+                },
+                "Graphics Pipe": {
+                    "unit": "%",
+                    "value": 0
+                },
+                "Input Assembly": {
+                    "unit": "%",
+                    "value": 0
+                },
+                "Primitive Assembly": {
+                    "unit": "%",
+                    "value": 0
+                },
+                "Shader Export": {
+                    "unit": "%",
+                    "value": 0
+                },
+                "Shader Processor Interpolator": {
+                    "unit": "%",
+                    "value": 0
+                },
+                "Texture Pipe": {
+                    "unit": "%",
+                    "value": 0
+                },
+                "Vertex Grouper / Tessellator": {
+                    "unit": "%",
+                    "value": 0
+                },
+                "Work Distributor": {
+                    "unit": "%",
+                    "value": 0
+                }
+            },
+            "GRBM2": {
+                "Command Processor -  Compute": {
+                    "unit": "%",
+                    "value": 0
+                },
+                "Command Processor -  Fetcher": {
+                    "unit": "%",
+                    "value": 0
+                },
+                "Command Processor - Graphics": {
+                    "unit": "%",
+                    "value": 0
+                },
+                "Efficiency Arbiter": {
+                    "unit": "%",
+                    "value": 0
+                },
+                "Render Backend Memory Interface": {
+                    "unit": "%",
+                    "value": 0
+                },
+                "RunList Controller": {
+                    "unit": "%",
+                    "value": 1
+                },
+                "Texture Cache": {
+                    "unit": "%",
+                    "value": 0
+                },
+                "Unified Translation Cache Level-2": {
+                    "unit": "%",
+                    "value": 0
+                }
+            },
+            "Info": {
+                "ASIC Name": "Renoir",
+                "Chip Class": "GFX9",
+                "DeviceID": 5688,
+                "DeviceName": "AMD Radeon Graphics",
+                "GL1 Cache per Shader Array": 0,
+                "GPU Clock": {
+                    "max": 2000,
+                    "min": 200
+                },
+                "GPU Family": "Raven (RV)",
+                "GPU Type": "APU",
+                "GTT Size": 8056827904,
+                "L1 Cache per CU": 16384,
+                "L2 Cache": 1048576,
+                "L3 Cache": 0,
+                "Memory Clock": {
+                    "max": 1333,
+                    "min": 400
+                },
+                "PCI": "0000:30:00.0",
+                "PCIe Link": null,
+                "Power Cap": null,
+                "Power Profiles": [
+                    "3D_FULL_SCREEN",
+                    "VIDEO",
+                    "VR",
+                    "COMPUTE",
+                    "CUSTOM"
+                ],
+                "RenderBackend": 2,
+                "ResizableBAR": true,
+                "RevisionID": 200,
+                "Shader Array per Shader Engine": 1,
+                "Shader Engine": 1,
+                "Total Compute Unit": 8,
+                "Total ROP": 16,
+                "VBIOS": {
+                    "date": "2021/02/28 08:58",
+                    "name": "Cezanne Generic VBIOS",
+                    "pn": "113-CEZANNE-018",
+                    "ver_str": "017.010.000.029.000000"
+                },
+                "VRAM Bit width": 64,
+                "VRAM Size": 536870912,
+                "VRAM Type": "DDR4",
+                "Video Caps": {
+                    "AV1": {
+                        "Decode": null,
+                        "Encode": null
+                    },
+                    "HEVC": {
+                        "Decode": {
+                            "height": 4352,
+                            "width": 8192
+                        },
+                        "Encode": {
+                            "height": 2304,
+                            "width": 4096
+                        }
+                    },
+                    "JPEG": {
+                        "Decode": {
+                            "height": 4096,
+                            "width": 4096
+                        },
+                        "Encode": null
+                    },
+                    "MPEG2": {
+                        "Decode": {
+                            "height": 4096,
+                            "width": 4096
+                        },
+                        "Encode": null
+                    },
+                    "MPEG4": {
+                        "Decode": {
+                            "height": 4096,
+                            "width": 4096
+                        },
+                        "Encode": null
+                    },
+                    "MPEG4_AVC": {
+                        "Decode": {
+                            "height": 4096,
+                            "width": 4096
+                        },
+                        "Encode": {
+                            "height": 2304,
+                            "width": 4096
+                        }
+                    },
+                    "VC1": {
+                        "Decode": {
+                            "height": 4096,
+                            "width": 4096
+                        },
+                        "Encode": null
+                    },
+                    "VP9": {
+                        "Decode": {
+                            "height": 4352,
+                            "width": 8192
+                        },
+                        "Encode": null
+                    }
+                },
+                "amdgpu_top_version": {
+                    "major": 0,
+                    "minor": 8,
+                    "patch": 2
+                },
+                "drm_version": {
+                    "major": 3,
+                    "minor": 54,
+                    "patchlevel": 0
+                },
+                "gfx_target_version": "gfx90c"
+            },
+            "Sensors": {
+                "Average Power": {
+                    "unit": "W",
+                    "value": 4
+                },
+                "Edge Temperature": {
+                    "unit": "C",
+                    "value": 48
+                },
+                "Fan": null,
+                "GFX Power": {
+                    "unit": "W",
+                    "value": 4
+                },
+                "GFX_MCLK": {
+                    "unit": "MHz",
+                    "value": 400
+                },
+                "GFX_SCLK": {
+                    "unit": "MHz",
+                    "value": 400
+                },
+                "Input Power": null,
+                "Junction Temperature": null,
+                "Memory Temperature": null,
+                "PCIe Link Speed": null,
+                "VDDGFX": {
+                    "unit": "mV",
+                    "value": 868
+                },
+                "VDDNB": {
+                    "unit": "mV",
+                    "value": 1050
+                }
+            },
+            "VRAM": {
+                "Total GTT": {
+                    "unit": "MiB",
+                    "value": 7683
+                },
+                "Total GTT Usage": {
+                    "unit": "MiB",
+                    "value": 328
+                },
+                "Total VRAM": {
+                    "unit": "MiB",
+                    "value": 512
+                },
+                "Total VRAM Usage": {
+                    "unit": "MiB",
+                    "value": 399
+                }
+            },
+            "fdinfo": {
+                "2111": {
+                    "name": "Xorg",
+                    "usage": {
+                        "CPU": {
+                            "unit": "%",
+                            "value": 2
+                        },
+                        "Compute": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "DMA": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "Decode": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "Encode": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "GFX": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "GTT": {
+                            "unit": "MiB",
+                            "value": 30
+                        },
+                        "Media": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "VCN_JPEG": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "VPE": null,
+                        "VRAM": {
+                            "unit": "MiB",
+                            "value": 65
+                        }
+                    }
+                },
+                "219310": {
+                    "name": "amdgpu_top",
+                    "usage": {
+                        "CPU": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "Compute": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "DMA": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "Decode": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "Encode": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "GFX": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "GTT": {
+                            "unit": "MiB",
+                            "value": 0
+                        },
+                        "Media": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "VCN_JPEG": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "VPE": null,
+                        "VRAM": {
+                            "unit": "MiB",
+                            "value": 0
+                        }
+                    }
+                },
+                "2274": {
+                    "name": "gnome-shell",
+                    "usage": {
+                        "CPU": {
+                            "unit": "%",
+                            "value": 1
+                        },
+                        "Compute": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "DMA": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "Decode": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "Encode": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "GFX": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "GTT": {
+                            "unit": "MiB",
+                            "value": 52
+                        },
+                        "Media": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "VCN_JPEG": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "VPE": null,
+                        "VRAM": {
+                            "unit": "MiB",
+                            "value": 173
+                        }
+                    }
+                },
+                "2343": {
+                    "name": "snapd-desktop-i",
+                    "usage": {
+                        "CPU": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "Compute": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "DMA": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "Decode": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "Encode": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "GFX": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "GTT": {
+                            "unit": "MiB",
+                            "value": 2
+                        },
+                        "Media": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "VCN_JPEG": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "VPE": null,
+                        "VRAM": {
+                            "unit": "MiB",
+                            "value": 4
+                        }
+                    }
+                },
+                "2714": {
+                    "name": "xdg-desktop-por",
+                    "usage": {
+                        "CPU": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "Compute": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "DMA": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "Decode": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "Encode": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "GFX": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "GTT": {
+                            "unit": "MiB",
+                            "value": 2
+                        },
+                        "Media": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "VCN_JPEG": {
+                            "unit": "%",
+                            "value": 0
+                        },
+                        "VPE": null,
+                        "VRAM": {
+                            "unit": "MiB",
+                            "value": 4
+                        }
+                    }
+                }
+            },
+            "gpu_activity": {
+                "GFX": {
+                    "unit": "%",
+                    "value": 16
+                },
+                "MediaEngine": {
+                    "unit": "%",
+                    "value": 0
+                },
+                "Memory": {
+                    "unit": "%",
+                    "value": null
+                }
+            },
+            "gpu_metrics": {
+                "Throttle Status": [],
+                "average_core_power": [
+                    7,
+                    7,
+                    7,
+                    23,
+                    1097,
+                    7,
+                    7,
+                    7
+                ],
+                "average_cpu_current": null,
+                "average_cpu_power": 1903,
+                "average_cpu_voltage": null,
+                "average_dclk1_frequency": null,
+                "average_dclk_frequency": null,
+                "average_fclk_frequency": 1286,
+                "average_gfx_current": null,
+                "average_gfx_power": null,
+                "average_gfx_voltage": null,
+                "average_gfxclk_frequency": 759,
+                "average_soc_current": null,
+                "average_soc_power": 2656,
+                "average_soc_voltage": null,
+                "average_socclk_frequency": 485,
+                "average_socket_power": 6,
+                "average_temperature_core": null,
+                "average_temperature_l3": null,
+                "average_uclk_frequency": null,
+                "average_vclk1_frequency": null,
+                "average_vclk_frequency": 400,
+                "current_coreclk": [
+                    3040,
+                    3040,
+                    3040,
+                    3040,
+                    3800,
+                    3040,
+                    3040,
+                    3040
+                ],
+                "current_dclk": 400,
+                "current_dclk1": null,
+                "current_fclk": 1333,
+                "current_gfxclk": 400,
+                "current_l3clk": [
+                    3800,
+                    0
+                ],
+                "current_socclk": 400,
+                "current_uclk": 6,
+                "current_vclk": 400,
+                "current_vclk1": null,
+                "fan_pwm": 50588,
+                "header": {
+                    "content_revision": 2,
+                    "format_revision": 2,
+                    "structure_size": 128
+                },
+                "pcie_link_speed": null,
+                "pcie_link_width": null,
+                "system_clock_counter": 170388178741989,
+                "temperature_core": [
+                    4825,
+                    4875,
+                    4850,
+                    4875,
+                    4875,
+                    4825,
+                    4825,
+                    4850
+                ],
+                "temperature_edge": null,
+                "temperature_gfx": 4850,
+                "temperature_hotspot": null,
+                "temperature_l3": [
+                    4825,
+                    0
+                ],
+                "temperature_mem": null,
+                "temperature_soc": 4950,
+                "temperature_vrgfx": null,
+                "temperature_vrmem": null,
+                "temperature_vrsoc": null,
+                "voltage_gfx": null,
+                "voltage_mem": null,
+                "voltage_soc": null
+            }
+        }
+    ],
+    "devices_len": 1,
+    "period": {
+        "duration": 1025,
+        "unit": "ms"
+    },
+    "title": "amdgpu_top v0.8.2"
+}
