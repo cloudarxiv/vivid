@@ -91,6 +91,10 @@ The GPU utilization and performance metrics are also presented in the report. A 
 
 Anshika Raman (210050014)
 
+BTech 3rd year
+
+CSE Dept., IIT Bombay
+
 ## Acknowledgements
 
 I express my gratitude to my guide, Prof. Purushottam Kulkarni, and my co-guide, Prof. Parag Chaudhuri, for providing me with the opportunity to work on this topic.
