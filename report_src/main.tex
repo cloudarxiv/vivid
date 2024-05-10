@@ -154,54 +154,48 @@ The days when one needs to be present in the office to access your data/desktop 
 
 \noindent A variety of possible mechanisms and configurations, like GPU multiplexing, the workload split between GPU and CPU, network bandwidth, etc., can easily influence such a VDI setup. The scope of this work is to draw a correlation between these factors and their influence on performance and cost (CPU, GPU usage, etc.).\\
 
-\noindent Below are the questions pertaining to hardware-accelerated VDI setup this work attempts to answer:
-\begin{itemize}
-    \item What are the popular VDI services, and why did we choose one over the other?
-    \item Why a VM-based setup is necessary, and why should the VMs be hardware-accelerated for rendering desktops?
-    \item What is the need for doing performance characterization of VDI setup, and why is the performance-cost tradeoff of hardware-accelerated VMs required to be determined?
-\end{itemize}
+% why we did what we did?
+% - why we did empirical analysis or performance eval of VDI
+%  - why we did software-based GPU multiplexing
+\noindent Service providers like NoMachine, TurboVNC, etc., provide VNC services with GPU capabilities. These services employ the non-virtualized method to provide GPUs to a virtual machine. While this enables GPU provisioning, it severely restricts GPU multiplexing and over-commitment capabilities. A software-based GPU multiplexing can be used to overcome these restrictions. Techniques like GPU passthrough, API-level virtualization (or Paravirtualization), etc., are a few to name.\\
 
-\newpage
+\noindent Currently, there is very little literature available with a clear idea of setting up a hardware-accelerated VDI, which also provides the metrics to evaluate the performance of the setup. TurboVNC claimed their performance improvement over their previous TigerVNC project by using the compression ratio as the metric. But, this metric alone is insufficient to characterize the hardware-accelerated VDI setup.\\
 
-\noindent Let's begin by looking at the advantages and disadvantages of VDI.\\
+\subsubsection{Need for performance characterization}
+Under constraints of the available hardware, we need to know how much we are benefiting from the current setup of VDI before we plan our ideas to improve the performance, and also to know which knob or parameter we should focus on and how much room we have for improvement. The number of virtual desktop users we can support depends on factors such as the system's RAM, CPU cores, GPU's VRAM, number of Compute Units, etc. Hence, to identify the maximum parallelism a server machine can provide, we need to determine the performance and cost metrics.\\
 
-\noindent \textbf{Advantages}
-\begin{itemize}
-    \item User has access to data from anywhere.
-    \item Accessing the VDI machine does not depend on the specific endpoint, i.e. BYOD (bring your own device).
-    \item One can manage all the devices remotely from anywhere instead of managing each device physically to update/ troubleshoot, etc., with local desktops.
-    \item Highly scalable, as the IT team can deploy new virtual desktops within minutes.
-\end{itemize}
+\noindent With this work, we aim to characterize the performance of hardware-accelerated VDI setup using the paravirtualization method and help provide vital inputs to build an end-to-end platform for hardware-accelerated VDI. Our contributions are as follows: \\
 
-\noindent \textbf{Disadvantages}
-\begin{itemize}
-    \item The deployment costs are high, both in terms of technologies and human resources.
-    \item Access to VDI entirely depends on the network. Either to access it or to provide a good user experience, there needs to be a good and stable Internet connection.
-    \item Running resource-intensive applications such as graphic or video conference tools can generate latency, impacting the user experience.
-\end{itemize}\\
+\begin{enumerate}
+    \item as background, we provide a detailed description of the VDI and the popular services, their shortcomings, and the Paravirtualized GPU model and its configurations.
+    \item we portray the complete picture of setting up a hardware-accelerated VDI, with detailed how-to steps.
+    \item we conduct a comprehensive performance evaluation of the hardware-accelerated VDI setup with the change in the count of parallel virtual desktop users and study the trade-off for GPU multiplexing and provisioning flexibility relative to virtualization overheads.
+    \item we highlight limitations and possible set extensions to the current paravirtualized support for GPU multiplexing in the case of VDI.
+\end{enumerate}
 
-\noindent \textbf{How does VDI work?}\\
+% \noindent A question of interest is to study the trade-off for GPU multiplexing and provisioning flexibility of the Paravirtualization method relative to virtualization overheads.\\
 
-\noindent In VDI, a hypervisor segments servers into virtual machines that host virtual desktops, which users access remotely from their endpoint devices. All the processing of user applications is done on the host server.\\
+% \noindent Below are the questions pertaining to the hardware-accelerated VDI setup this work attempts to answer. Read the following chapters to understand the answers better.
+% \begin{itemize}
+%     \item Why a VM-based setup is necessary, and why should the VMs be hardware-accelerated for rendering desktops?\\[5pt]
+%     Earlier, only one user could access a desktop remotely, hence requiring a need of individual physical machine for each user. In the VDI setup, since we want multiple users to access their isolated virtual desktops hosted on the same server machine, virtual machines are the right choice. GPUs will boost the performance of desktop rendering tasks (for each user connected to the server) compared to the CPU. Thus, adding hardware acceleration support to the VM is desirable.
+%     \item What is the need for doing performance characterization of VDI setup, and why is the performance-cost tradeoff of hardware-accelerated VMs required to be determined?\\[5pt]
+    
+%     \item What are the popular VDI services, and why did we choose one over the other?\\[5pt]
+%     NoMachine and TurboVNC + VirtualGL are the popular VDI services. While the TurboVNC + VirtualGL setup was incompatible with the display manager like lightdm and gdm for our hardware, we chose NoMachine and went ahead.
+% \end{itemize}
 
-\noindent VDI can be either persistent or non-persistent. Each type offers different benefits:
+% \noindent \textbf{How to implement VDI?}\\ 
 
-\begin{itemize}
-    \item \textbf{Persistent VDI}: A user connects to the same desktop each time, and users can personalize the desktop for their needs since changes are saved even after the connection is reset. In other words, persistent VDI acts like personal physical desktops.
-    \item \textbf{Non-persistent VDI}: Users connect to generic desktops, and no changes are saved; it is usually simpler and cheaper since there is no need to maintain customized desktops between sessions. Hence, non-persistent VDI is often used in organizations with many employees who perform a limited set of repetitive tasks and don't need a customized desktop.
-\end{itemize}
+% \noindent This work answers the question in much detail. There are three major aspects that this work explores:
 
-\noindent \textbf{How to implement VDI?}\\ 
+% \begin{itemize}
+%     \item Measuring VDI performance %talks about nomachine
+%     \item Multiplexing the VDI setup with Graphics Acceleration support %talks about vm setup with vnc
+%     \item Virtualizing the graphics pipeline for hardware acceleration %talks about hardware acceleration inside vm
+% \end{itemize}
 
-\noindent This work answers the question in much detail. There are three major aspects that this work explores:
-
-\begin{itemize}
-    \item Measuring VDI performance %talks about nomachine
-    \item Multiplexing the VDI setup with Graphics Acceleration support %talks about vm setup with vnc
-    \item Virtualizing the graphics pipeline for hardware acceleration %talks about hardware acceleration inside vm
-\end{itemize}
-
-\newpage
+% \newpage
 
 \noindent Following are the sections of this work:
 
@@ -263,7 +257,36 @@ The days when one needs to be present in the office to access your data/desktop 
 
 VDIs are key in connecting you with any computer system remotely from any endpoint device, be it your PC, smartphone, tablet, etc. It has played a major role in the IT industry, eliminating the need for the company to provide each employer with a physical machine that needs to be managed, repaired and replaced. Authorized users can access the same company servers, files, apps, and services from any approved device through a secure desktop client or browser.\\
 
-\noindent VDI lets you run traditional desktop workloads on centralized servers and has become the standard. There are multiple ways to deliver virtual desktops and apps to users -- VDI, to be sure, but other flavours of VDI, such as desktop as a service (DaaS) and even personalized Cloud PCs. These services have become increasingly popular for various reasons -- improved security, performance, centralization, lower hardware requirements, and cost savings -- not to mention enabling employees to do their jobs anywhere in the world.
+\noindent VDI lets you run traditional desktop workloads on centralized servers and has become the standard. There are multiple ways to deliver virtual desktops and apps to users -- VDI, to be sure, but other flavours of VDI, such as desktop as a service (DaaS) and even personalized Cloud PCs. These services have become increasingly popular for various reasons -- improved security, performance, centralization, lower hardware requirements, and cost savings -- not to mention enabling employees to do their jobs anywhere in the world.\\
+
+\noindent Let's look at the advantages and disadvantages of VDI.\\
+
+\noindent \textbf{Advantages}
+\begin{itemize}
+    \item User has access to data from anywhere.
+    \item Accessing the VDI machine does not depend on the specific endpoint, i.e. BYOD (bring your own device).
+    \item One can manage all the devices remotely from anywhere instead of managing each device physically to update/ troubleshoot, etc., with local desktops.
+    \item Highly scalable, as the IT team can deploy new virtual desktops within minutes.
+\end{itemize}
+
+\noindent \textbf{Disadvantages}
+\begin{itemize}
+    \item The deployment costs are high, both in terms of technologies and human resources.
+    \item Access to VDI entirely depends on the network. Either to access it or to provide a good user experience, there needs to be a good and stable Internet connection.
+    \item Running resource-intensive applications such as graphic or video conference tools can generate latency, impacting the user experience.
+\end{itemize}
+
+\newpage
+\noindent \textbf{How does VDI work?}\\
+
+\noindent In VDI, a hypervisor segments servers into virtual machines that host virtual desktops, which users access remotely from their endpoint devices. All the processing of user applications is done on the host server.\\
+
+\noindent VDI can be either persistent or non-persistent. Each type offers different benefits:
+
+\begin{itemize}
+    \item \textbf{Persistent VDI}: A user connects to the same desktop each time, and users can personalize the desktop for their needs since changes are saved even after the connection is reset. In other words, persistent VDI acts like personal physical desktops.
+    \item \textbf{Non-persistent VDI}: Users connect to generic desktops, and no changes are saved; it is usually simpler and cheaper since there is no need to maintain customized desktops between sessions. Hence, non-persistent VDI is often used in organizations with many employees who perform a limited set of repetitive tasks and don't need a customized desktop.
+\end{itemize}
 
 \section{NoMachine VDI}
 It is a remote desktop software, free for personal use, designed for anyone who wants to access single or multiple computers using one simple tool. It ensures secure and reliable remote desktop connections, regardless of the underlying network you are using. For personal use (free version), \textbf{only one concurrent} connection is allowed, and hardware-accelerated display processing, video encoding and decoding are also available. \cite{nomachine_intro}\\
@@ -819,4 +842,3 @@ The current VDI setup with Graphics Acceleration is not fully functional for rem
 \printbibliography
 
 \end{document}
-
